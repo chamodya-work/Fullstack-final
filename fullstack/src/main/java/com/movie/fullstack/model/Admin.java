@@ -18,5 +18,6 @@ public class Admin extends User{
 
     @Id
     private String admin_id;
+
 }
 
