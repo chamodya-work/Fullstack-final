@@ -26,7 +26,6 @@ public class AdminService {
         return adminRepository.findById(id).orElse(null);
 
     }
-
     public Admin addAdmin(Admin admin){
         admin.setAdmin_id(generateSequence(Admin.SEQUENCE_NAME));
         return adminRepository.save(admin);
