@@ -49,6 +49,11 @@ public class AdminService {
         return adminRepository.save(existingGUser);
     }
 
+    /**
+     * Deletes an Admin by their ID.
+     * @param id - Admin ID
+     * @return Confirmation message for deletion
+     */
     public String deleteAdmin(String id){
         adminRepository.deleteById(id);
         return "Admin Deleted - id=" +id;
