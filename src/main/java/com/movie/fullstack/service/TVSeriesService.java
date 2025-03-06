@@ -22,6 +22,12 @@ public class TVSeriesService {
     @Autowired
     private TVSeriesRepository tvSeriesRepository;
 
+     /**
+     * Adds a new TV series to the database.
+     * Generates a unique sequence ID before saving.
+     * @param tvSeries - TVSeries object to be added
+     * @return Saved TVSeries object
+     */
     public TVSeries addSeries(TVSeries tvSeries){
         tvSeries.setSeries_id(generateSequence(TVSeries.SEQUENCE_NAME));
         return tvSeriesRepository.save(tvSeries);
@@ -31,6 +37,12 @@ public class TVSeriesService {
         return tvSeriesRepository.findAll();
     }
 
+     /**
+     * Retrieves a specific TV series by its ID.
+     * Throws a RuntimeException if the series is not found.
+     * @param series_id - The unique ID of the TV series
+     * @return TVSeries object if found
+     */
     public TVSeries getSeriesById(String series_id){
         Optional<TVSeries> tvSeries = tvSeriesRepository.findById(series_id);
         if(tvSeries.isPresent()){
