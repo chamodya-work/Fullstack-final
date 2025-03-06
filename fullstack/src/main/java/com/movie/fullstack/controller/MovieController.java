@@ -17,11 +17,13 @@ public class MovieController {
     private MovieService movieService;
 
     @PostMapping("/addMovie")
+    //this is only for admin
     public ResponseEntity<Movie> addMovie(@RequestBody Movie movie){
         return new ResponseEntity<Movie>(movieService.addMovie(movie), HttpStatus.CREATED);
     }
 
     @GetMapping("/getAllMovies")
+    //this can access user and admin
     public List<Movie> getAllMovies(){
         return movieService.getAllMovies();
     }
