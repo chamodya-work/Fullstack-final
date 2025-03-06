@@ -16,11 +16,20 @@ public class GUserController {
     @Autowired
     private GUserService guserService;
 
+    /**
+     * Endpoint to add a new user.
+     * @param gUser The user object received from the request body.
+     * @return ResponseEntity containing the saved user and HTTP status CREATED (201).
+     */
     @PostMapping("/addGUser")
     public ResponseEntity<GUser> addGUser(@RequestBody GUser gUser){
         return new ResponseEntity<GUser>(guserService.addGUser(gUser), HttpStatus.CREATED);
     }
 
+    /**
+     * Endpoint to retrieve all users.
+     * @return A list of all users.
+     */
     @GetMapping("/getAllGUser")
     public List<GUser> getGUser(){
         return guserService.getGUser();
@@ -36,6 +45,12 @@ public class GUserController {
         return guserService.getGUserByEmail(email);
     }
 
+
+    /**
+     * Endpoint to retrieve a user by their ID.
+     * @param id The ID of the user.
+     * @return The user object if found.
+     */
     @PutMapping("/updateGUser/{id}")
     public ResponseEntity<?> updateGUser(@PathVariable String id, @RequestBody GUser gUser){
 
@@ -43,6 +58,11 @@ public class GUserController {
         return ResponseEntity.ok(updateGUser);
     }
 
+    /**
+     * Endpoint to delete a user by ID.
+     * @param id The ID of the user to be deleted.
+     * @return A success message if the user is deleted.
+     */
     @DeleteMapping("/deleteGUser/{id}")
     public String deleteGUser(@PathVariable String id){
         return guserService.deleteGUser(id);
