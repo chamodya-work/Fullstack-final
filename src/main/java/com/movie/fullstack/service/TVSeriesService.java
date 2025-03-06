@@ -16,7 +16,8 @@ import static org.springframework.data.mongodb.core.FindAndModifyOptions.options
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
-@Service
+
+@Service// Marks this class as a Spring service component
 public class TVSeriesService {
     @Autowired
     private TVSeriesRepository tvSeriesRepository;
