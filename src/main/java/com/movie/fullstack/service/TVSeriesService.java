@@ -41,6 +41,13 @@ public class TVSeriesService {
         }
     }
 
+     /**
+     * Generates a unique sequence ID for TVSeries.
+     * Uses MongoDB's atomic update operation to maintain unique sequential IDs.
+     * @param seqName - Sequence name for TVSeries
+     * @return Generated sequence ID prefixed with "T"
+     */
+
     @Autowired
     private MongoOperations mongoOperations;
 
